@@ -18,9 +18,9 @@ class TCGApp extends StatelessWidget {
               child: Image(image: AssetImage("assets/TCG_Logo.png")),
             ),
             Container(
-              height: 20,
-              padding: EdgeInsets.only(left: 10, right: 10),
-              margin: EdgeInsets.only(left: 20, right: 20, top: 40),
+              height: 30,
+              padding: const EdgeInsets.only(left: 10, right: 10, bottom: 5),
+              margin: const EdgeInsets.only(left: 20, right: 20, top: 40, bottom: 30),
               decoration: BoxDecoration(
                 color: Colors.grey[300],
                 borderRadius: BorderRadius.circular(20),
@@ -30,6 +30,15 @@ class TCGApp extends StatelessWidget {
               const Expanded(child: TextField())
              ]),
             ),
+            const Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(onPressed: null, child: Text("Filter")),
+                ElevatedButton(onPressed: null, child: Text("Sets")),
+                ElevatedButton(onPressed: null, child: Text("Favs")),
+              ],
+              )
           ],
         ),
       ),
