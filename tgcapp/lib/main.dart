@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tgcapp/api.dart';
+import 'package:tgcapp/modules/p_card.dart';
+import 'package:tgcapp/widgets/card_from_home.dart';
 
 void main(List<String> args) {
   runApp(const TCGApp());
@@ -38,7 +41,28 @@ class TCGApp extends StatelessWidget {
                 ElevatedButton(onPressed: null, child: Text("Sets")),
                 ElevatedButton(onPressed: null, child: Text("Favs")),
               ],
-              )
+            ),
+            FutureBuilder(
+              future: apiLoadPCards(), 
+              builder: (
+                BuildContext context,
+                AsyncSnapshot<List<PCard>> snapshot,
+              ) {
+                if (!snapshot.hasData)
+                {
+                  return const Center(child: CircularProgressIndicator());
+                }
+                final cardList = snapshot.data!;
+              return GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+                itemCount: 4,
+                itemBuilder: (BuildContext context, int index)
+                {
+                  return CardFromHome(pcard: cardList[index]);
+                },
+              );
+              },
+            ),
           ],
         ),
       ),
