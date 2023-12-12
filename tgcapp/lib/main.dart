@@ -9,8 +9,30 @@ class TCGApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(),
+    return MaterialApp(
+      home: Scaffold(
+        body: Column(
+          children: [
+            const Align(
+              alignment: Alignment.topCenter,
+              child: Image(image: AssetImage("assets/TCG_Logo.png")),
+            ),
+            Container(
+              height: 20,
+              padding: EdgeInsets.only(left: 10, right: 10),
+              margin: EdgeInsets.only(left: 20, right: 20, top: 40),
+              decoration: BoxDecoration(
+                color: Colors.grey[300],
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Row(children: [
+              Icon(Icons.search, color: Colors.grey[700],),
+              const Expanded(child: TextField())
+             ]),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
