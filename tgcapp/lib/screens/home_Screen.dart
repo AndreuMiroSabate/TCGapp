@@ -1,16 +1,16 @@
 
 import 'package:flutter/material.dart';
-import 'package:tgcapp/main.dart';
+import 'package:tgcapp/widgets/functions_class.dart';
 import 'package:tgcapp/widgets/pcard_list.dart';
 
-// ignore: must_be_immutable
-class HomeScreen extends StatelessWidget {
-  HomeScreen({super.key, required this.path, required this.tcgapp});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
-  String path;
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
 
-  TCGApp tcgapp;
-
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +45,7 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
         Expanded(
-          child: PCardList(path: tcgapp.getArandomPath()),
+          child: PCardList(path: cPath.path),
         ),
       ]),
     );
