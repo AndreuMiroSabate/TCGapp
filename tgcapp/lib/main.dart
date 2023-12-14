@@ -1,19 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:tgcapp/screens/home_Screen.dart';
+import 'package:tgcapp/screens/sets_Screen.dart';
 
 void main(List<String> args) {
-  runApp(const TCGApp());
+  runApp(TCGApp());
 }
 
+// ignore: must_be_immutable
 class TCGApp extends StatelessWidget {
-  const TCGApp({super.key});
+   TCGApp({super.key});
+
+   String path = "https://api.pokemontcg.io/v2/cards";
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        body: HomeScreen()
-        ),
+      routes:
+    {
+      "/": (context) => const HomeScreen(),
+      "/sets": (context) => const SetsScreen(),
+    }
     );
   }
 }
