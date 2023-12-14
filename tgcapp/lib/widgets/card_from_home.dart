@@ -11,11 +11,8 @@ class CardFromHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(pcard.name),
-      leading:CircleAvatar(
-        backgroundImage: NetworkImage(pcard.imageUrl),
-      ),
+    return GridTile(
+        child: Image.network(pcard.imageUrlS),
     );
   }
 }
