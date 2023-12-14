@@ -1,10 +1,15 @@
-import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:tgcapp/main.dart';
 import 'package:tgcapp/widgets/pcard_list.dart';
 
+// ignore: must_be_immutable
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  HomeScreen({super.key, required this.path, required this.tcgapp});
+
+  String path;
+
+  TCGApp tcgapp;
 
   @override
   Widget build(BuildContext context) {
@@ -40,18 +45,10 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
         Expanded(
-          child: PCardList(path: "https://api.pokemontcg.io/v2/cards?page=1&pageSize=4"),
+          child: PCardList(path: tcgapp.getArandomPath()),
         ),
       ]),
     );
   }
 }
 
-String getArandomPath()
-{
-  String path;
-  int randpage = Random().nextInt(5);
-  path = "https://api.pokemontcg.io/v2/cards?page=${randpage}Size=4";
-
-  return path;
-}
