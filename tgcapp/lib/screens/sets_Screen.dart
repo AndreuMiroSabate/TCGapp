@@ -18,6 +18,7 @@ class _StesScreenSState extends State<StesScreenS> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ElevatedButton(
               onPressed:(){

@@ -16,8 +16,8 @@ class _ResultsScreenState extends State<ResultsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(cPath.path),
             ElevatedButton(
               onPressed:(){
                 setState(() {

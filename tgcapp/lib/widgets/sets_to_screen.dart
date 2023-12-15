@@ -14,7 +14,7 @@ class SetsToScreen extends StatelessWidget {
     return GridTile(
         child: OutlinedButton(
           onPressed: (){
-            cPath.path = "https://api.pokemontcg.io/v2/cards?q=set.name:${pset.name}";
+            cPath.path = "https://api.pokemontcg.io/v2/cards?q=set.id:${pset.id}";
             Navigator.of(context).pushNamed("/results");   
           },
           style: OutlinedButton.styleFrom(
