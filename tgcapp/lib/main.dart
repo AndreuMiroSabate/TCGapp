@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tgcapp/screens/home_Screen.dart';
+import 'package:tgcapp/screens/results_screen.dart';
 import 'package:tgcapp/screens/sets_Screen.dart';
 
 void main(List<String> args) {
@@ -17,6 +18,7 @@ class TCGApp extends StatelessWidget {
       {
         "/": (context) => const HomeScreen(),
         "/sets": (context) => const StesScreenS(),
+        "/results": (context) => const ResultsScreen()
       }
     );
   }

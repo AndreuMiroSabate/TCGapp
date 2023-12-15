@@ -29,7 +29,7 @@ class PSetList extends StatelessWidget {
               return GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, mainAxisSpacing: 20),
                 itemCount: setsList.length,
-                padding: const EdgeInsets.only(top: 20, bottom: 20),
+                padding: const EdgeInsets.all(20.0),
                 
                 itemBuilder: (BuildContext context, int index)
                 {
