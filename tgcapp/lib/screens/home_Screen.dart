@@ -17,7 +17,9 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Column(children: [
         const Align(
           alignment: Alignment.topCenter,
-          child: Image(image: AssetImage("assets/TCG_Logo.png")),
+          child: Image(
+            image: AssetImage("assets/TCG_Logo.png"),
+          ),
         ),
         Container(
           height: 30,
@@ -40,8 +42,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       "https://api.pokemontcg.io/v2/cards?q=name:$value*";
                   Navigator.of(context).pushNamed("/results");
                 },
-                decoration: InputDecoration(
-                hintText: "Search a pokemon here",
+                decoration: const InputDecoration(
+                  hintText: "Search a pokemon here",
                 ),
               ),
             ),
@@ -51,13 +53,17 @@ class _HomeScreenState extends State<HomeScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            ElevatedButton(onPressed: null, child: Text("Filter")),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed("/filters");
+                },
+                child: const Text("Filter")),
             ElevatedButton(
                 onPressed: () {
                   Navigator.of(context).pushNamed("/sets");
                 },
-                child: Text("Sets")),
-            ElevatedButton(onPressed: null, child: Text("Favs")),
+                child: const Text("Sets")),
+            const ElevatedButton(onPressed: null, child: Text("Favs")),
           ],
         ),
         Expanded(

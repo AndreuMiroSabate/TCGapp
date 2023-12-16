@@ -18,7 +18,7 @@ class SetsToScreen extends StatelessWidget {
             Navigator.of(context).pushNamed("/results");   
           },
           style: OutlinedButton.styleFrom(
-            padding: EdgeInsets.all(20.0),
+            padding: const EdgeInsets.all(20.0),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0),
           )

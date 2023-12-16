@@ -13,8 +13,8 @@ class CardFromHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridTile(
         footer: Container(
-          decoration: BoxDecoration(shape: BoxShape.circle, color: Color.fromARGB(100, 0, 0, 0)), 
-          child:Padding(padding: EdgeInsets.all(5), child: pcard.favourite?const Icon(Icons.favorite):const Icon(Icons.favorite_border),)),
+          decoration: const BoxDecoration(shape: BoxShape.circle, color: Color.fromARGB(100, 0, 0, 0)), 
+          child:Padding(padding: const EdgeInsets.all(5), child: pcard.favourite?const Icon(Icons.favorite):const Icon(Icons.favorite_border),)),
         child: Image.network(pcard.imageUrlS),
     );
   }
