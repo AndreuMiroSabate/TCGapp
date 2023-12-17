@@ -20,7 +20,7 @@ class TCGApp extends StatelessWidget {
         "/": (context) => const HomeScreen(),
         "/sets": (context) => const StesScreenS(),
         "/results": (context) => const ResultsScreen(),
-        "/filters": (context) => const FiltersScreen(),
+        "/filters": (context) => FiltersScreen(),
       }
     );
   }
