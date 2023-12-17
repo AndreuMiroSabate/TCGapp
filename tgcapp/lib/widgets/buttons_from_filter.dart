@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:tgcapp/widgets/functions_class.dart';
 
+// ignore: must_be_immutable
 class ButtonsFromFilter extends StatefulWidget {
-  ButtonsFromFilter({super.key});
-
+  ButtonsFromFilter({super.key, required this.filterValues});
+  FilterValues filterValues;
   @override
   State<ButtonsFromFilter> createState() => _ButtonsFromFilterState();
 }
 
 class _ButtonsFromFilterState extends State<ButtonsFromFilter> {
-  String selectedValue = "Option 1";
 
   @override
   Widget build(BuildContext context) {
+  String selectedValue = widget.filterValues.pType[0];
     return ListTile(
       leading: const Text("preview"),
       title: Container(
@@ -26,7 +27,7 @@ class _ButtonsFromFilterState extends State<ButtonsFromFilter> {
               });
             }
           },
-          items: <String>['Option 1', 'Option 2', 'Option 3', 'Option 4']
+          items: widget.filterValues.pType
               .map<DropdownMenuItem<String>>((String value) {
             return DropdownMenuItem<String>(
               value: value,

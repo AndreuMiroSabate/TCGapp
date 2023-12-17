@@ -23,10 +23,12 @@ class _FiltersScreenState extends State<FiltersScreen> {
           child: const Icon(Icons.arrow_back, size: 20),
         ),
         Expanded(
-          child: ListView.builder(padding: EdgeInsets.only(left: 20,right: 20),itemCount: allFilterValues.length, itemBuilder: (context, index){
-              return ButtonsFromFilter();
-          }),
-          
+          child: ListView.builder(
+              padding: const EdgeInsets.only(left: 20, right: 20),
+              itemCount: allFilterValues.length,
+              itemBuilder: (context, index) {
+                return ButtonsFromFilter(filterValues: allFilterValues[index]);
+              }),
         )
       ]),
     );
