@@ -38,3 +38,21 @@ Future<List<PSet>> apiLoadPSets(String path) async{
   return pSetList;
 
 }
+
+Future<List<String>> apiLoadFilters(String path) async{
+  final uri = Uri.parse(path);
+  final response = await http.get(
+    uri, 
+    headers: {"X-Api-Key":"8088de87-0aad-4518-be85-6c043f81e54a"},);
+  final json = jsonDecode(response.body);
+  final jsonPFiltersList = json["data"];
+  final List<String> pFilterList = [];
+  pFilterList.add("");
+  for (final jsonPFilters in jsonPFiltersList)
+  {
+    final String pfilter = jsonPFilters.toString();
+    pFilterList.add(pfilter);
+  }
+  return pFilterList;
+
+}
