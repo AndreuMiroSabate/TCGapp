@@ -1,8 +1,6 @@
-import 'dart:convert';
-import 'dart:io';
+
 import 'dart:math';
 
-import 'package:path_provider/path_provider.dart';
 
 ClassPath cPath =
     ClassPath("https://api.pokemontcg.io/v2/cards?page=3&pageSize=4");
@@ -31,21 +29,3 @@ class FilterValues {
   }
 }
 
-Future<List<FilterValues>> getAllFilters() async {
-  List<FilterValues> values = [];
-
-  final dir = await getApplicationDocumentsDirectory();
-  final file = File("${dir.absolute.path}\\external\\filterdata.json");
-
-  // Check if the file exists before reading
-  if (await file.exists()) {
-    final content = await file.readAsString();
-    final jsonData = jsonDecode(content);
-
-    for (final item in jsonData) {
-      values.add(FilterValues.fromJson(item));
-    }
-  }
-
-  return values;
-}
