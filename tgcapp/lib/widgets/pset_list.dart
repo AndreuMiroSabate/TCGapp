@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:tgcapp/api.dart';
 import 'package:tgcapp/modules/p_set.dart';
@@ -13,30 +12,28 @@ class PSetList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-              future: apiLoadPSets(path), 
-              builder: (
-                BuildContext context,
-                AsyncSnapshot<List<PSet>> snapshot,
-              ) {
-                if (snapshot.hasError) {
-                  return ErrorWidget(snapshot.error.toString());
-                }
-                if (!snapshot.hasData)
-                {
-                  return const Center(child: CircularProgressIndicator());
-                }
-              final setsList = snapshot.data!;
-              return GridView.builder(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, mainAxisSpacing: 20),
-                itemCount: setsList.length,
-                padding: const EdgeInsets.all(20.0),
-                
-                itemBuilder: (BuildContext context, int index)
-                {
-                  return SetsToScreen(pset: setsList[index]);
-                },
-              );
-             },
-          );
+      future: apiLoadPSets(path),
+      builder: (
+        BuildContext context,
+        AsyncSnapshot<List<PSet>> snapshot,
+      ) {
+        if (snapshot.hasError) {
+          return ErrorWidget(snapshot.error.toString());
+        }
+        if (!snapshot.hasData) {
+          return const Center(child: CircularProgressIndicator());
+        }
+        final setsList = snapshot.data!;
+        return GridView.builder(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2, mainAxisSpacing: 20),
+          itemCount: setsList.length,
+          padding: const EdgeInsets.all(20.0),
+          itemBuilder: (BuildContext context, int index) {
+            return SetsToScreen(pset: setsList[index]);
+          },
+        );
+      },
+    );
   }
 }
