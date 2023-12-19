@@ -59,10 +59,11 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).pushNamed("/filters");
-                  },
-                  child: const Text("Filter")),
+                onPressed: () {
+                  Navigator.of(context).pushNamed("/filters");
+                },
+                child: const Text("Filter"),
+              ),
               ElevatedButton(
                   onPressed: () {
                     Navigator.of(context).pushNamed("/sets");
