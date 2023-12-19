@@ -16,10 +16,11 @@ class _ButtonsFromFilterState extends State<ButtonsFromFilter> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Text(widget.title),
+      leading: Text(widget.title,style: TextStyle(color: Colors.white)),
       title: Container(
         padding: const EdgeInsets.only(top: 20, bottom: 20),
         child: DropdownButton<String>(
+          dropdownColor: Color.fromARGB(255, 35, 46,72),
           value: selectedValue,
           onChanged: (String? newValue) {
             if (newValue != null) {
@@ -43,7 +44,7 @@ class _ButtonsFromFilterState extends State<ButtonsFromFilter> {
               .map<DropdownMenuItem<String>>((String value) {
             return DropdownMenuItem<String>(
               value: value,
-              child: Text(value),
+              child: Text(value,style: TextStyle(color: Colors.white)),
             );
           }).toList(),
         ),
