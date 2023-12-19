@@ -44,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: TextField(
                   onSubmitted: (value) {
                     cPath.path =
-                        "https://api.pokemontcg.io/v2/cards?q=name:$value*";
+                        "https://api.pokemontcg.io/v2/cards?q=name:*$value*";
                     Navigator.of(context).pushNamed("/results");
                   },
                   decoration: const InputDecoration(
