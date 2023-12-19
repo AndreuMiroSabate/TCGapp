@@ -20,20 +20,24 @@ class _ResultsScreenState extends State<ResultsScreen> {
           image: AssetImage("assets/Projecte nou.png"),
           fit: BoxFit.cover,
         ),
-          Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  Navigator.pop(context);
-                });
-              },
-              child: const Icon(Icons.arrow_back, size: 20),
-            ),
-            Expanded(child: PCardList(path: cPath.path))
-          ],
-        ),
+          Container(
+            margin: const EdgeInsets.all(10),
+            child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    Navigator.pop(context);
+                  });
+                },
+                child: const Icon(Icons.arrow_back, size: 20),
+                
+              ),
+              Expanded(child: PCardList(path: cPath.path))
+            ],
+                    ),
+          ),
       ]),
     );
   }
