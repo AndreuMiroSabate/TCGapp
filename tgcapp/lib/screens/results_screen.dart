@@ -13,20 +13,28 @@ class _ResultsScreenState extends State<ResultsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      body: Stack(
+        fit: StackFit.expand,
         children: [
-          ElevatedButton(
-            onPressed: () {
-              setState(() {
-                Navigator.pop(context);
-              });
-            },
-            child: const Icon(Icons.arrow_back, size: 20),
-          ),
-          Expanded(child: PCardList(path: cPath.path))
-        ],
-      ),
+          const Image(
+          image: AssetImage("assets/Projecte nou.png"),
+          fit: BoxFit.cover,
+        ),
+          Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  Navigator.pop(context);
+                });
+              },
+              child: const Icon(Icons.arrow_back, size: 20),
+            ),
+            Expanded(child: PCardList(path: cPath.path))
+          ],
+        ),
+      ]),
     );
   }
 }
