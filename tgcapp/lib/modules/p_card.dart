@@ -1,5 +1,5 @@
 class PCard {
-  String name, supertype;
+  String name, supertype, id;
   dynamic type;
   String setName;
   String imageUrlL, imageUrlS;
@@ -8,7 +8,8 @@ class PCard {
 
   PCard.fromJson(Map<String, dynamic> json)
       : name = json["name"],
-        type =  json["types"] != null && json["types"].isNotEmpty
+        id = json["id"],
+        type = json["types"] != null && json["types"].isNotEmpty
             ? json["types"][0]
             : "none",
         supertype = json["supertype"],

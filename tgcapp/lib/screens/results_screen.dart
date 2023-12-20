@@ -13,16 +13,14 @@ class _ResultsScreenState extends State<ResultsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        fit: StackFit.expand,
-        children: [
-          const Image(
-          image: AssetImage("assets/Projecte nou.png"),
+      body: Stack(fit: StackFit.expand, children: [
+        const Image(
+          image: AssetImage("assets/background_pokeball.png"),
           fit: BoxFit.cover,
         ),
-          Container(
-            margin: const EdgeInsets.all(10),
-            child: Column(
+        Container(
+          margin: const EdgeInsets.all(10),
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ElevatedButton(
@@ -32,12 +30,11 @@ class _ResultsScreenState extends State<ResultsScreen> {
                   });
                 },
                 child: const Icon(Icons.arrow_back, size: 20),
-                
               ),
               Expanded(child: PCardList(path: cPath.path))
             ],
-                    ),
           ),
+        ),
       ]),
     );
   }

@@ -16,7 +16,8 @@ class _StesScreenSState extends State<StesScreenS> {
     return Scaffold(
       body: Stack(fit: StackFit.expand, children: [
         const Image(
-            image: AssetImage("assets/Projecte nou.png"), fit: BoxFit.cover),
+            image: AssetImage("assets/background_pokeball.png"),
+            fit: BoxFit.cover),
         Container(
           margin: const EdgeInsets.all(10),
           child: Column(

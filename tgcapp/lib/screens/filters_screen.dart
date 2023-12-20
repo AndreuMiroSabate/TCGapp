@@ -24,7 +24,8 @@ class _FiltersScreenState extends State<FiltersScreen> {
     return Scaffold(
       body: Stack(fit: StackFit.expand, children: [
         const Image(
-            image: AssetImage("assets/Projecte nou.png"), fit: BoxFit.cover),
+            image: AssetImage("assets/background_pokeball.png"),
+            fit: BoxFit.cover),
         Container(
           margin: const EdgeInsets.all(10),
           child: Column(
@@ -48,7 +49,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
                     borderRadius: const BorderRadius.all(Radius.circular(20)),
                     border: Border.all(
                       color: const Color.fromARGB(255, 216, 182, 17),
-                      width: 7
+                      width: 7,
                     ),
                   ),
                   child: Column(children: [

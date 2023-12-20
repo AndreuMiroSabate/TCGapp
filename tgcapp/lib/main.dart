@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tgcapp/screens/fav_screen.dart';
 import 'package:tgcapp/screens/filters_screen.dart';
 import 'package:tgcapp/screens/home_screen.dart';
 import 'package:tgcapp/screens/results_screen.dart';
@@ -14,15 +15,12 @@ class TCGApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      routes:
-      {
-        "/": (context) => const HomeScreen(),
-        "/sets": (context) => const StesScreenS(),
-        "/results": (context) => const ResultsScreen(),
-        "/filters": (context) => FiltersScreen(),
-      }
-    );
+    return MaterialApp(routes: {
+      "/": (context) => const HomeScreen(),
+      "/sets": (context) => const StesScreenS(),
+      "/results": (context) => const ResultsScreen(),
+      "/filters": (context) => FiltersScreen(),
+      "/fav": (context) => const FavouriteScreen(),
+    });
   }
 }
-
