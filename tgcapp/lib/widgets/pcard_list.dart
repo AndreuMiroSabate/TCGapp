@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:tgcapp/api.dart';
+import 'package:tgcapp/models/favourite_save.dart';
 import 'package:tgcapp/modules/p_card.dart';
 import 'package:tgcapp/widgets/card_from_home.dart';
 import 'dart:math';
@@ -39,6 +40,7 @@ class PCardList extends StatelessWidget {
           
           itemBuilder: (BuildContext context, int index)
           {
+            checkIn(cardList[index]);
             return CardFromHome(pcard: cardList[index]);
           },
         );
