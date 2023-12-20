@@ -42,13 +42,13 @@ class _FiltersScreenState extends State<FiltersScreen> {
                 ),
               ),
               Container(
-                  margin: const EdgeInsets.all(20),
+                  margin: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(255, 57, 88, 151),
                     borderRadius: const BorderRadius.all(Radius.circular(20)),
                     border: Border.all(
                       color: const Color.fromARGB(255, 216, 182, 17),
-                      width: 10
+                      width: 7
                     ),
                   ),
                   child: Column(children: [
@@ -64,9 +64,9 @@ class _FiltersScreenState extends State<FiltersScreen> {
                     setState(() {
                       cPath.path = "https://api.pokemontcg.io/v2/cards?q="
                           "${type == '' ? '' : 'types:$type '}"
-                          "${subtype == '' ? '' : 'subtypes:$subtype '}"
+                          "${subtype == '' ? '' : 'subtypes:${subtype.replaceAll(" ", "&")} '}"
                           "${supertype == '' ? '' : 'supertype:$supertype '}"
-                          "${rarity == '' ? '' : 'rarity:$rarity '}";
+                          "${rarity == '' ? '' : 'rarity:${rarity.replaceAll(" ", "&")} '}";
                       Navigator.of(context).pushNamed("/results");
                     });
                   },
