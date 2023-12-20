@@ -12,6 +12,7 @@ class FiltersScreen extends StatefulWidget {
     "https://api.pokemontcg.io/v2/subtypes",
     "https://api.pokemontcg.io/v2/supertypes",
     "https://api.pokemontcg.io/v2/rarities",
+    "https://api.pokemontcg.io/v2/sets"
   ];
 
   @override
@@ -22,62 +23,73 @@ class _FiltersScreenState extends State<FiltersScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(fit: StackFit.expand, children: [
-        const Image(
-            image: AssetImage("assets/background_pokeball.png"),
-            fit: BoxFit.cover),
-        Container(
-          margin: const EdgeInsets.all(10),
-          child: Column(
-            children: [
-              Align(
-                alignment: Alignment.topLeft,
-                child: ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      cPath = ClassPath(getArandomPath());
-                      Navigator.of(context).pushNamed("/");
-                    });
-                  },
-                  child: const Icon(Icons.arrow_back, size: 20),
-                ),
-              ),
-              Container(
-                  margin: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 57, 88, 151),
-                    borderRadius: const BorderRadius.all(Radius.circular(20)),
-                    border: Border.all(
-                      color: const Color.fromARGB(255, 216, 182, 17),
-                      width: 7,
-                    ),
+      backgroundColor: const Color.fromARGB(255, 60, 101, 141),
+      body: SafeArea(
+        child: Stack(fit: StackFit.expand, children: [
+          const Image(
+              image: AssetImage("assets/background_pokeball.png"),
+              fit: BoxFit.cover),
+          Container(
+            margin: const EdgeInsets.all(10),
+            child: Column(
+              children: [
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        cPath = ClassPath(getArandomPath());
+                        Navigator.of(context).pushNamed("/");
+                      });
+                    },
+                    child: const Icon(Icons.house_sharp, size: 20),
                   ),
-                  child: Column(children: [
-                    FiltersList(path: widget.pathList[0], title: "Type"),
-                    FiltersList(path: widget.pathList[1], title: "Subtype"),
-                    FiltersList(path: widget.pathList[2], title: "Supertype"),
-                    FiltersList(path: widget.pathList[3], title: "Rarity"),
-                  ])),
-              Align(
-                alignment: Alignment.center,
-                child: ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      cPath.path = "https://api.pokemontcg.io/v2/cards?q="
-                          "${type == '' ? '' : 'types:$type '}"
-                          "${subtype == '' ? '' : 'subtypes:${subtype.replaceAll(" ", "&")} '}"
-                          "${supertype == '' ? '' : 'supertype:$supertype '}"
-                          "${rarity == '' ? '' : 'rarity:${rarity.replaceAll(" ", "&")} '}";
-                      Navigator.of(context).pushNamed("/results");
-                    });
-                  },
-                  child: const Icon(Icons.search, size: 50),
                 ),
-              ),
-            ],
+                Container(
+                    margin: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 60, 101, 141),
+                      borderRadius: const BorderRadius.all(Radius.circular(20)),
+                      border: Border.all(
+                        color: const Color.fromARGB(255, 216, 182, 17),
+                        width: 7,
+                      ),
+                    ),
+                    child: Column(children: [
+                      FiltersList(path: widget.pathList[0], title: "Type"),
+                      FiltersList(path: widget.pathList[1], title: "Subtype"),
+                      FiltersList(path: widget.pathList[2], title: "Supertype"),
+                      FiltersList(path: widget.pathList[3], title: "Rarity"),
+                    ])),
+                Align(
+                  alignment: Alignment.center,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors
+                          .transparent, // Set transparent background color
+                      foregroundColor: Colors.black, // Set text color
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        cPath.path = "https://api.pokemontcg.io/v2/cards?q="
+                            "${type == '' ? '' : 'types:$type '}"
+                            "${subtype == '' ? '' : 'subtypes:${subtype.replaceAll(" ", "&")} '}"
+                            "${supertype == '' ? '' : 'supertype:$supertype '}"
+                            "${rarity == '' ? '' : 'rarity:${rarity.replaceAll(" ", "&")} '}";
+                        Navigator.of(context).pushNamed("/results");
+                      });
+                    },
+                    child: const Image(
+                        image:
+                            AssetImage("assets/cartoon-pokeball-sticker.png"),
+                        height: 75),
+                  ),
+                ),
+              ],
+            ),
           ),
-        ),
-      ]),
+        ]),
+      ),
     );
   }
 }
