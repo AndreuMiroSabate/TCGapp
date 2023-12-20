@@ -1,25 +1,50 @@
 import 'package:flutter/material.dart';
 import 'package:tgcapp/models/favourite_save.dart';
 
-class FavCardFromHome extends StatelessWidget {
+class FavCardFromHome extends StatefulWidget {
   const FavCardFromHome({
     super.key,
-    required this.pcard,
+    required this.pCard,
   });
 
-  final SavedCardClass pcard;
+  final SavedCardClass pCard;
 
+  @override
+  State<FavCardFromHome> createState() => _FavCardFromHomeState();
+}
+
+class _FavCardFromHomeState extends State<FavCardFromHome> {
   @override
   Widget build(BuildContext context) {
     return GridTile(
-      footer: Container(
-        decoration: const BoxDecoration(
-            shape: BoxShape.circle, color: Color.fromARGB(100, 0, 0, 0)),
-        child: const Padding(
-          padding: EdgeInsets.all(5),
-        ),
+      footer: Padding(
+        padding: EdgeInsets.all(5),
+        child: Stack(alignment: Alignment.center, children: [
+          ElevatedButton(
+            style: const ButtonStyle(
+                backgroundColor: MaterialStatePropertyAll(
+                    Color.fromARGB(255, 88, 145, 202))),
+            onPressed: () {
+              setState(() {
+                widget.pCard.isFav = !widget.pCard.isFav;
+                if (!widget.pCard.isFav) {
+                  checkOut(widget.pCard.cardID);
+                }
+                Navigator.of(context).pushNamed("/fav");
+              });
+              saveList(savedCards);
+            },
+            child: widget.pCard.isFav
+                ? const Icon(
+                    Icons.star,
+                    color: Colors.amber,
+                  )
+                : const Icon(Icons.star_border,
+                    color: Color.fromARGB(255, 107, 90, 36)),
+          ),
+        ]),
       ),
-      child: Image.network(pcard.imgPath),
+      child: Image.network(widget.pCard.imgPath),
     );
   }
 }
