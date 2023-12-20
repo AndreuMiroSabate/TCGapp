@@ -16,11 +16,12 @@ class _ButtonsFromFilterState extends State<ButtonsFromFilter> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Text(widget.title,style: const TextStyle(color: Colors.white)),
+      leading: Text(widget.title,style: const TextStyle(color: Colors.white, fontSize: 13)),
       title: Container(
         padding: const EdgeInsets.only(top: 20, bottom: 20),
         child: DropdownButton<String>(
           dropdownColor: const Color.fromARGB(255, 35, 46,72),
+          iconEnabledColor: Colors.white,
           value: selectedValue,
           onChanged: (String? newValue) {
             if (newValue != null) {
