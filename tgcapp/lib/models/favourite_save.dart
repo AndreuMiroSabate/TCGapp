@@ -55,12 +55,10 @@ void checkOut(String iD) {
   }
 }
 
-void checkIn(List<PCard> lista) {
-  for (int j = 0; j < lista.length; j++) {
+void checkIn(PCard lista) {
     for (int i = 0; i < savedCards.length; i++) {
-      if (savedCards[i].cardID == lista[j].id) {
-        lista[j].favourite = true;
+      if (savedCards[i].cardID == lista.id) {
+        lista.favourite = true;
       }
     }
-  }
 }
