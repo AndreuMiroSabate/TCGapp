@@ -32,7 +32,7 @@ class PCardFavList extends StatelessWidget {
           itemCount: savedCards.length,
           padding: const EdgeInsets.only(top: 20, bottom: 20),
           itemBuilder: (BuildContext context, int index) {
-            return FavCardFromHome(pcard: savedCards[index]);
+            return FavCardFromHome(pCard: savedCards[index]);
           },
         );
       },
