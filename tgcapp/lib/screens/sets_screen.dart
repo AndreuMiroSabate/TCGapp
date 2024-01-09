@@ -14,7 +14,7 @@ class _StesScreenSState extends State<StesScreenS> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 60, 101, 141),
+      backgroundColor: const Color.fromARGB(255, 60, 101, 141),
       body: SafeArea(
         child: Stack(fit: StackFit.expand, children: [
           const Image(

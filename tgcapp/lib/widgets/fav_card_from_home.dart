@@ -18,7 +18,7 @@ class _FavCardFromHomeState extends State<FavCardFromHome> {
   Widget build(BuildContext context) {
     return GridTile(
       footer: Padding(
-        padding: EdgeInsets.all(5),
+        padding: const EdgeInsets.all(5),
         child: Stack(alignment: Alignment.center, children: [
           ElevatedButton(
             style: const ButtonStyle(
